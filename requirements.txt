@@ -5,3 +5,4 @@ pyrogram
 flask_restful
 flask
 gunicorn
+TgCrypto
