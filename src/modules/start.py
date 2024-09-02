@@ -9,6 +9,11 @@ from pyrogram.enums import ChatType
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, InputMediaAnimation, InputMediaPhoto
 from src import app
 
+def add_user_database(user_id: int):
+    check_user = collection.find_one({"user_id": user_id})
+    if not check_user:
+        return collection.insert_one({"user_id": user_id})
+
 @app.on_message(filters.command("start"))
 async def start(_, m: Message):
     add_user_database(m.from_user.id)
