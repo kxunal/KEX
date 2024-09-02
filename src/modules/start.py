@@ -9,6 +9,10 @@ from pyrogram.enums import ChatType
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, InputMediaAnimation, InputMediaPhoto
 from src import app
 
+DATABASE = MongoClient(MONGO_DB_URI)
+db = DATABASE["MAIN"]["USERS"]
+collection = db["members"]
+
 def add_user_database(user_id: int):
     check_user = collection.find_one({"user_id": user_id})
     if not check_user:
