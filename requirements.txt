@@ -1,1 +1,7 @@
-
+python-dotenv
+telethon
+pymongo
+pyrogram
+flask_restful
+flask
+gunicorn
