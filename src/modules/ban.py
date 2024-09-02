@@ -4,8 +4,8 @@ from telethon import TelegramClient
 import logging
 from telethon.tl.types import ChannelParticipantsAdmins, ChatBannedRights
 from telethon.tl.functions.channels import EditBannedRequest
-from config import SUDOERS
-from var import Var
+from config import SUDOERS, API_HASH, API_ID, BOT_TOKEN
+
 
 RIGHTS = ChatBannedRights(
     until_date=None,
@@ -21,7 +21,7 @@ RIGHTS = ChatBannedRights(
 
 logging.basicConfig(level=logging.INFO)
 
-Riz = TelegramClient('Riz', Var.API_ID, Var.API_HASH).start(bot_token=Var.BOT_TOKEN)
+Riz = TelegramClient('Riz', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
 SUDO_USERS = [int(user_id) for user_id in SUDOERS]
 
