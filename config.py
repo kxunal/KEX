@@ -1,7 +1,9 @@
 from os import getenv
 from dotenv import load_dotenv
 
-load_dotenv()
+if os.path.exists(".env"):
+    load_dotenv(".env")
+  
 
 #Necessary Variables 
 API_ID = int(os.getenv("API_ID", ""))
